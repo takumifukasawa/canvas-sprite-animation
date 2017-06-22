@@ -20,7 +20,6 @@ const spriteCanvas = new CanvasSpriteAnimation({
 
 spriteCanvas.load()
   .then(() => {
-    wrapper.appendChild(spriteCanvas.domElement);
     requestAnimationFrame(tick);
   });
 
