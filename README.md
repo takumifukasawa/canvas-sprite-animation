@@ -5,7 +5,7 @@ DEMO: [https://takumifukasawa.github.io/canvas-sprite-animation/](https://takumi
 ## 使い方
 
 ```javascript
-const canvas = document.querySelector('#canvas');
+const canvas = document.getElementById('canvas');
 
 const spriteCanvas = new CanvasSpriteAnimation({
   domElement: canvas    // canvas elem
