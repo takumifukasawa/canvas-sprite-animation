@@ -1466,9 +1466,9 @@ exports.default = TimeSkipper;
 },{"babel-runtime/helpers/classCallCheck":3,"babel-runtime/helpers/createClass":4}],74:[function(require,module,exports){
 'use strict';
 
-var _CanvasSprite = require('./CanvasSprite');
+var _SpriteCanvas = require('./SpriteCanvas');
 
-var _CanvasSprite2 = _interopRequireDefault(_CanvasSprite);
+var _SpriteCanvas2 = _interopRequireDefault(_SpriteCanvas);
 
 var _TimeAccumulater = require('./TimeAccumulater');
 
@@ -1481,7 +1481,7 @@ var _TimeSkipper2 = _interopRequireDefault(_TimeSkipper);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var wrapper = document.querySelector('.wrapper');
-var spriteCanvas = new _CanvasSprite2.default({
+var spriteCanvas = new _SpriteCanvas2.default({
   src: './sprite.png',
   row: 4,
   col: 6,
@@ -1512,4 +1512,4 @@ function tick(time) {
   requestAnimationFrame(tick);
 }
 
-},{"./CanvasSprite":71,"./TimeAccumulater":72,"./TimeSkipper":73}]},{},[74]);
+},{"./SpriteCanvas":71,"./TimeAccumulater":72,"./TimeSkipper":73}]},{},[74]);

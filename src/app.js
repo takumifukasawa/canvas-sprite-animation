@@ -1,5 +1,5 @@
 
-import SpriteCanvas from './CanvasSprite';
+import SpriteCanvas from './SpriteCanvas';
 import TimeAccumulator from './TimeAccumulater';
 import TimeSkipper from './TimeSkipper';
 
