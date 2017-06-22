@@ -13,9 +13,10 @@ const spriteCanvas = new CanvasSpriteAnimation({
   row: 4,               // 横列の画像枚数 ※必須
   col: 6,               // 縦列の画像枚数 ※必須
   maxFrame: 23,         // 合計の画像枚数
-  fps: 15,              // fps
-  loop: true            // loopするかどうか
-  init: false           // インスタンスを作る際にロードするかどうか
+  fps: 15,              // fps（default: 30）
+  ratio: 2,             // デバイスピクセル比など解像度を設定（default: 1）
+  loop: true            // loopするかどうか（default: false）
+  init: false           // インスタンスを作る際にロードするかどうか（default: false）
 });
 
 spriteCanvas.load()
