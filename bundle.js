@@ -1266,8 +1266,8 @@ var _createClass3 = _interopRequireDefault(_createClass2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var SpriteCanvas = function () {
-  function SpriteCanvas(_ref) {
+var CanvasSpriteAnimation = function () {
+  function CanvasSpriteAnimation(_ref) {
     var canvas = _ref.canvas,
         src = _ref.src,
         maxFrame = _ref.maxFrame,
@@ -1276,7 +1276,7 @@ var SpriteCanvas = function () {
         fps = _ref.fps,
         loop = _ref.loop,
         init = _ref.init;
-    (0, _classCallCheck3.default)(this, SpriteCanvas);
+    (0, _classCallCheck3.default)(this, CanvasSpriteAnimation);
 
     this.canvas = canvas || document.createElement('canvas');
     this._ctx = this.canvas.getContext('2d');
@@ -1303,7 +1303,7 @@ var SpriteCanvas = function () {
     }
   }
 
-  (0, _createClass3.default)(SpriteCanvas, [{
+  (0, _createClass3.default)(CanvasSpriteAnimation, [{
     key: 'load',
     value: function load() {
       var _this = this;
@@ -1355,10 +1355,10 @@ var SpriteCanvas = function () {
       this._ctx.drawImage(this._image, this._frameWidth * rowIndex, this._frameHeight * colIndex, this._width, this._height, 0, 0, this._width, this._height);
     }
   }]);
-  return SpriteCanvas;
+  return CanvasSpriteAnimation;
 }();
 
-exports.default = SpriteCanvas;
+exports.default = CanvasSpriteAnimation;
 
 },{"babel-runtime/core-js/promise":2,"babel-runtime/helpers/classCallCheck":3,"babel-runtime/helpers/createClass":4}],72:[function(require,module,exports){
 "use strict";
@@ -1466,9 +1466,9 @@ exports.default = TimeSkipper;
 },{"babel-runtime/helpers/classCallCheck":3,"babel-runtime/helpers/createClass":4}],74:[function(require,module,exports){
 'use strict';
 
-var _SpriteCanvas = require('./SpriteCanvas');
+var _CanvasSpriteAnimation = require('./CanvasSpriteAnimation');
 
-var _SpriteCanvas2 = _interopRequireDefault(_SpriteCanvas);
+var _CanvasSpriteAnimation2 = _interopRequireDefault(_CanvasSpriteAnimation);
 
 var _TimeAccumulater = require('./TimeAccumulater');
 
@@ -1481,7 +1481,7 @@ var _TimeSkipper2 = _interopRequireDefault(_TimeSkipper);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var wrapper = document.querySelector('.wrapper');
-var spriteCanvas = new _SpriteCanvas2.default({
+var spriteCanvas = new _CanvasSpriteAnimation2.default({
   src: './sprite.png',
   row: 4,
   col: 6,
@@ -1512,4 +1512,4 @@ function tick(time) {
   requestAnimationFrame(tick);
 }
 
-},{"./SpriteCanvas":71,"./TimeAccumulater":72,"./TimeSkipper":73}]},{},[74]);
+},{"./CanvasSpriteAnimation":71,"./TimeAccumulater":72,"./TimeSkipper":73}]},{},[74]);

@@ -1,10 +1,10 @@
 
-import SpriteCanvas from './SpriteCanvas';
+import CanvasSpriteAnimation from './CanvasSpriteAnimation';
 import TimeAccumulator from './TimeAccumulater';
 import TimeSkipper from './TimeSkipper';
 
 const wrapper = document.querySelector('.wrapper');
-const spriteCanvas = new SpriteCanvas({
+const spriteCanvas = new CanvasSpriteAnimation({
   src: './sprite.png',
   row: 4,
   col: 6,

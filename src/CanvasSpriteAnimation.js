@@ -1,5 +1,5 @@
 
-export default class SpriteCanvas {
+export default class CanvasSpriteAnimation {
   constructor({ canvas, src, maxFrame, row, col, fps, loop, init }) {
     this.canvas = canvas || document.createElement('canvas');
     this._ctx = this.canvas.getContext('2d');
