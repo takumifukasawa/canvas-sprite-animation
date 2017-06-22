@@ -10,8 +10,7 @@ const spriteCanvas = new SpriteCanvas({
   col: 6,
   maxFrame: 23,
   fps: 15,
-  loop: true,
-  init: false
+  loop: true
 });
 
 const timeAccumulator = new TimeAccumulator(update, 60);

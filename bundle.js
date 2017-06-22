@@ -1487,8 +1487,7 @@ var spriteCanvas = new _CanvasSprite2.default({
   col: 6,
   maxFrame: 23,
   fps: 15,
-  loop: true,
-  init: false
+  loop: true
 });
 
 var timeAccumulator = new _TimeAccumulater2.default(update, 60);
