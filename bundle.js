@@ -1361,127 +1361,18 @@ var CanvasSpriteAnimation = function () {
 exports.default = CanvasSpriteAnimation;
 
 },{"babel-runtime/core-js/promise":2,"babel-runtime/helpers/classCallCheck":3,"babel-runtime/helpers/createClass":4}],72:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require("babel-runtime/helpers/createClass");
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//--------------------------------------------
-// 加算方式
-//--------------------------------------------
-
-var TimeAccumulator = function () {
-  function TimeAccumulator(func, fps) {
-    var chaseCount = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 5;
-    (0, _classCallCheck3.default)(this, TimeAccumulator);
-
-    this._func = func;
-    this._rate = 1000 / fps;
-    this._time = -Infinity;
-    this._chaseCount = chaseCount;
-  }
-
-  (0, _createClass3.default)(TimeAccumulator, [{
-    key: "exec",
-    value: function exec(time) {
-      if (this._time < 0) {
-        this._time = time;
-      }
-
-      if (this._time >= time) {
-        return;
-      }
-
-      var count = 0;
-      while (count < this._chaseCount && this._time < time) {
-        this._time += this._rate;
-        this._func(this._time, this._rate);
-        count++;
-      }
-    }
-  }]);
-  return TimeAccumulator;
-}();
-
-exports.default = TimeAccumulator;
-
-},{"babel-runtime/helpers/classCallCheck":3,"babel-runtime/helpers/createClass":4}],73:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require("babel-runtime/helpers/createClass");
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var TimeSkipper = function () {
-  function TimeSkipper(func, fps) {
-    (0, _classCallCheck3.default)(this, TimeSkipper);
-
-    this._func = func;
-    this._rate = 1000 / fps;
-    this._time = -Infinity;
-  }
-
-  (0, _createClass3.default)(TimeSkipper, [{
-    key: "exec",
-    value: function exec(time) {
-      // first frame
-      if (this._time < 0) {
-        this._time = time;
-      }
-
-      if (this._time < time) {
-        while (this._time < time) {
-          this._time += this._rate;
-        }
-        this._func(this._time, this._rate);
-      }
-    }
-  }]);
-  return TimeSkipper;
-}();
-
-exports.default = TimeSkipper;
-
-},{"babel-runtime/helpers/classCallCheck":3,"babel-runtime/helpers/createClass":4}],74:[function(require,module,exports){
 'use strict';
 
 var _CanvasSpriteAnimation = require('./CanvasSpriteAnimation');
 
 var _CanvasSpriteAnimation2 = _interopRequireDefault(_CanvasSpriteAnimation);
 
-var _TimeAccumulater = require('./TimeAccumulater');
-
-var _TimeAccumulater2 = _interopRequireDefault(_TimeAccumulater);
-
-var _TimeSkipper = require('./TimeSkipper');
-
-var _TimeSkipper2 = _interopRequireDefault(_TimeSkipper);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var wrapper = document.querySelector('.wrapper');
+var canvas = document.getElementById('canvas');
+
 var spriteCanvas = new _CanvasSpriteAnimation2.default({
+  domElement: canvas,
   src: './sprite.png',
   row: 4,
   col: 6,
@@ -1490,26 +1381,14 @@ var spriteCanvas = new _CanvasSpriteAnimation2.default({
   loop: true
 });
 
-var timeAccumulator = new _TimeAccumulater2.default(update, 60);
-var timeSkipper = new _TimeSkipper2.default(render, 60);
-
 spriteCanvas.load().then(function () {
-  wrapper.appendChild(spriteCanvas.domElement);
   requestAnimationFrame(tick);
 });
 
-function update(time) {
-  spriteCanvas.update(time);
-}
-
-function render() {
-  spriteCanvas.render();
-}
-
 function tick(time) {
-  timeAccumulator.exec(time);
-  timeSkipper.exec(time);
+  spriteCanvas.update(time);
+  spriteCanvas.render();
   requestAnimationFrame(tick);
 }
 
-},{"./CanvasSpriteAnimation":71,"./TimeAccumulater":72,"./TimeSkipper":73}]},{},[74]);
+},{"./CanvasSpriteAnimation":71}]},{},[72]);
