@@ -10,7 +10,8 @@ const spriteCanvas = new CanvasSpriteAnimation({
   col: 6,
   maxFrame: 23,
   fps: 15,
-  loop: true
+  loop: true,
+  init: false
 });
 
 spriteCanvas.load()

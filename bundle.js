@@ -1378,7 +1378,8 @@ var spriteCanvas = new _CanvasSpriteAnimation2.default({
   col: 6,
   maxFrame: 23,
   fps: 15,
-  loop: true
+  loop: true,
+  init: false
 });
 
 spriteCanvas.load().then(function () {
