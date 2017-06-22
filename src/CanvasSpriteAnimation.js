@@ -1,6 +1,6 @@
 
 export default class CanvasSpriteAnimation {
-  constructor({ domElement, src, maxFrame, row, col, fps, loop, init }) {
+  constructor({ domElement, src, maxFrame, row, col, fps, ratio, loop, init }) {
     this.domElement = domElement || document.createElement('canvas');
     this._ctx = this.domElement.getContext('2d');
 
@@ -10,6 +10,7 @@ export default class CanvasSpriteAnimation {
     this._minFrame = 0;
     this._maxFrame = maxFrame || this._row * this._col;
     this._fps = fps || 30;
+    this._ratio = ratio || 1;
     this._loop = loop || false;
     this._init = init || false;
 
@@ -35,7 +36,10 @@ export default class CanvasSpriteAnimation {
         
         this.domElement.width = this._width;
         this.domElement.height = this._height;
-    
+   
+        this.domElement.style.width = `${this._width / this._ratio}px`;
+        this.domElement.style.height = `${this._height / this._ratio}px`;
+
         this._frameWidth = this._width;
         this._frameHeight = this._height;
 

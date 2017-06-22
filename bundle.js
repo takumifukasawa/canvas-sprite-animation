@@ -1274,6 +1274,7 @@ var CanvasSpriteAnimation = function () {
         row = _ref.row,
         col = _ref.col,
         fps = _ref.fps,
+        ratio = _ref.ratio,
         loop = _ref.loop,
         init = _ref.init;
     (0, _classCallCheck3.default)(this, CanvasSpriteAnimation);
@@ -1287,6 +1288,7 @@ var CanvasSpriteAnimation = function () {
     this._minFrame = 0;
     this._maxFrame = maxFrame || this._row * this._col;
     this._fps = fps || 30;
+    this._ratio = ratio || 1;
     this._loop = loop || false;
     this._init = init || false;
 
@@ -1316,6 +1318,9 @@ var CanvasSpriteAnimation = function () {
 
           _this.domElement.width = _this._width;
           _this.domElement.height = _this._height;
+
+          _this.domElement.style.width = _this._width / _this._ratio + 'px';
+          _this.domElement.style.height = _this._height / _this._ratio + 'px';
 
           _this._frameWidth = _this._width;
           _this._frameHeight = _this._height;
@@ -1378,6 +1383,7 @@ var spriteCanvas = new _CanvasSpriteAnimation2.default({
   col: 6,
   maxFrame: 23,
   fps: 15,
+  ratio: 2,
   loop: true,
   init: false
 });

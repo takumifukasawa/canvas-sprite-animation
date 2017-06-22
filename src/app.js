@@ -10,6 +10,7 @@ const spriteCanvas = new CanvasSpriteAnimation({
   col: 6,
   maxFrame: 23,
   fps: 15,
+  ratio: 2,
   loop: true,
   init: false
 });
