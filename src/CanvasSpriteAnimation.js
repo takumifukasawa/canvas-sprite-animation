@@ -9,9 +9,9 @@ export default class CanvasSpriteAnimation {
     this._col = col;
     this._minFrame = 0;
     this._maxFrame = maxFrame || this._row * this._col;
-    this._fps = fps;
-    this._loop = loop;
-    this._init = init;
+    this._fps = fps || 30;
+    this._loop = loop || false;
+    this._init = init || false;
 
     this._canRender = false;
 
