@@ -1268,7 +1268,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var CanvasSpriteAnimation = function () {
   function CanvasSpriteAnimation(_ref) {
-    var canvas = _ref.canvas,
+    var domElement = _ref.domElement,
         src = _ref.src,
         maxFrame = _ref.maxFrame,
         row = _ref.row,
@@ -1278,8 +1278,8 @@ var CanvasSpriteAnimation = function () {
         init = _ref.init;
     (0, _classCallCheck3.default)(this, CanvasSpriteAnimation);
 
-    this.canvas = canvas || document.createElement('canvas');
-    this._ctx = this.canvas.getContext('2d');
+    this.domElement = domElement || document.createElement('canvas');
+    this._ctx = this.domElement.getContext('2d');
 
     this._src = src;
     this._row = row;
@@ -1314,8 +1314,8 @@ var CanvasSpriteAnimation = function () {
           _this._width = _this._image.width / _this._row;
           _this._height = _this._image.height / _this._col;
 
-          _this.canvas.width = _this._width;
-          _this.canvas.height = _this._height;
+          _this.domElement.width = _this._width;
+          _this.domElement.height = _this._height;
 
           _this._frameWidth = _this._width;
           _this._frameHeight = _this._height;
@@ -1494,7 +1494,7 @@ var timeAccumulator = new _TimeAccumulater2.default(update, 60);
 var timeSkipper = new _TimeSkipper2.default(render, 60);
 
 spriteCanvas.load().then(function () {
-  wrapper.appendChild(spriteCanvas.canvas);
+  wrapper.appendChild(spriteCanvas.domElement);
   requestAnimationFrame(tick);
 });
 

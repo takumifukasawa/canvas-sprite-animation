@@ -1,8 +1,8 @@
 
 export default class CanvasSpriteAnimation {
-  constructor({ canvas, src, maxFrame, row, col, fps, loop, init }) {
-    this.canvas = canvas || document.createElement('canvas');
-    this._ctx = this.canvas.getContext('2d');
+  constructor({ domElement, src, maxFrame, row, col, fps, loop, init }) {
+    this.domElement = domElement || document.createElement('canvas');
+    this._ctx = this.domElement.getContext('2d');
 
     this._src = src;
     this._row = row;
@@ -33,8 +33,8 @@ export default class CanvasSpriteAnimation {
         this._width = this._image.width / this._row;
         this._height = this._image.height / this._col;
         
-        this.canvas.width = this._width;
-        this.canvas.height = this._height;
+        this.domElement.width = this._width;
+        this.domElement.height = this._height;
     
         this._frameWidth = this._width;
         this._frameHeight = this._height;

@@ -18,7 +18,7 @@ const timeSkipper = new TimeSkipper(render, 60);
 
 spriteCanvas.load()
   .then(() => {
-    wrapper.appendChild(spriteCanvas.canvas);
+    wrapper.appendChild(spriteCanvas.domElement);
     requestAnimationFrame(tick);
   });
 
